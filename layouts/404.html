@@ -91,21 +91,24 @@
 <!--=================================
 =   Call to action section starts   =
 ==================================-->
-    <section id="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">SO WHAT YOU THINK ?</h1>
-                            <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,
-                                <br>possimus commodi, fugiat magnam temporibus vero magni recusandae? Dolore, maxime praesentium.</p>
-                            <a href="contact.html" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact With Me</a>
-                    </div>
+{{ if .Site.Params.cta.enable }}
+{{ "<!-- Call To Action Section Start -->" | safeHTML }}
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    {{ with .Site.Params.cta.title }}<h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">{{ . }}</h1>{{ end }}
+                    {{ with .Site.Params.cta.content }}<p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">{{ . | safeHTML }}</p>{{ end }}
+                    <a href="{{ .Site.Params.cta.btnURL }}" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">{{ .Site.Params.cta.btnText }}</a>
                 </div>
-
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+{{ "<!-- Call To Action Section End -->" | safeHTML }}
+{{ end }}
 <!--=================================
 =       Footer section start        =
 ==================================-->
