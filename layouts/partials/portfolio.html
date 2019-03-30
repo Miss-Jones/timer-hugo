@@ -8,6 +8,7 @@
         </div>
         <div class="row">
             {{ range $index, $element:= where .Data.Pages "Type" "portfolio" }}
+            {{ if le $index 5 }}
             <div class="col-md-4 col-sm-6">
                 {{ $delay := mul $index 300 }}
                 <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
@@ -15,7 +16,7 @@
                         <img src="{{ .Params.image }}" class="img-fluid" alt="this is a title">
                         <div class="overlay">
                             <div class="buttons">
-                                <a rel="gallery" class="fancybox" href="{{ .Params.image }}">Demo</a>
+                                <a rel="gallery" class="fancybox" href="{{ .Params.liveLink }}">Demo</a>
                                 <a href="{{ .Permalink }}">Details</a>
                             </div>
                         </div>
@@ -23,7 +24,7 @@
                     <figcaption>
                         <h4>
                             <a href="{{ .Permalink }}">
-                                {{ .Title }}
+                                {{ .Title  }}
                             </a>
                         </h4>
                         <p>
@@ -32,6 +33,7 @@
                     </figcaption>
                 </figure>
             </div>
+            {{ end }}
             {{ end }}
         </div>
     </div>
