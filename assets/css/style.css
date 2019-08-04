@@ -1289,6 +1289,8 @@ article {
 #footer .social li {
   display: inline-block;
   margin-right: 15px;
+  width:16px;
+  height:auto;
 }
 
 #footer .social li a {
