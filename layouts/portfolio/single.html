@@ -9,9 +9,13 @@
                     <h2>{{ .Title }}</h2>
                     <div class="portfolio-meta">
                         <span>{{ .Date.Format "02/01-2006" }}</span>|
-                        <span> Category: {{ delimit .Params.category ", " }}</span>|
-                        <span> 
-                            <a href="{{ .Params.liveLink }}" target="_blank">Demo link</a>
+                        <span> Category: {{ delimit .Params.category ", " }}</span>
+                        <span>
+                            {{ if .Params.liveLink }}
+                            |<a href="{{ .Params.liveLink }}" target="_blank">Demo link</a>
+                            {{ else }}
+                            <a href="{{ .Params.liveLink }}" target="_blank"></a>
+                            {{ end }}
                         </span>
                     </div>
                 </div>

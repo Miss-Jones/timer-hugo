@@ -16,7 +16,9 @@
                         <img src="{{ .Params.frontImage | relURL }}" class="img-fluid" alt="this is a title">
                         <div class="overlay">
                             <div class="buttons">
+                                {{ if .Params.liveLink }}
                                 <a rel="gallery" class="fancybox" href="{{ .Params.liveLink  }}" target="_blank">Demo</a>
+                                {{ end }}
                                 <a href="{{ .Permalink }}">Details</a>
                             </div>
                         </div>
