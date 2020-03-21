@@ -8,7 +8,7 @@
                 <div class="block">
                     <h2>{{ .Title }}</h2>
                     <div class="portfolio-meta">
-                        <span>{{ .Date.Format "02/01-2006" }}</span>|
+                        <span>{{ .Params.submitDate }}</span>|
                         <span> Category: {{ delimit .Params.category ", " }}</span>|
                         <span>
                             {{ if .Params.liveLink }}
